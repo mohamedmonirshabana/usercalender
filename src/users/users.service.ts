@@ -13,9 +13,7 @@ export class UsersService{
     async Createuser( createuserDto : CreateuserDto ){
 
         const salt = await bcrypt.genSalt(10);
-        const pass = createuserDto.password;
-        const newpass  = await bcrypt.hash(pass, salt);
-        createuserDto.password = newpass;
+        createuserDto.password = await bcrypt.hash(createuserDto.password, salt);;
         const newuser = new this.userModel(createuserDto);
         await newuser.save();
         return newuser.id;
