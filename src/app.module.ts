@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
+//import { MulterModule } from '@nestjs/platform-express';
 
 
 
@@ -19,6 +20,7 @@ import { UsersModule } from './users/users.module';
       }
     }), 
     UsersModule,
+   
   ],
   providers: [AppService],
 })
